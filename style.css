@@ -119,3 +119,40 @@ nav ul li a:hover {
 .member-item label {
     cursor: pointer;
 }
+
+#charter article {
+    padding: 1rem 2rem;
+    padding-left: 3rem;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    border: 2px solid var(--dark-orange);
+
+    box-sizing: border-box;
+}
+
+h2 + p {
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.member-item:has(input:checked) {
+    background-color: var(--soft-orange);
+    border-radius: 4px;
+}
+
+#charter ul li:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 700px) {
+    .attendance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 1cm;
+    }
+}
