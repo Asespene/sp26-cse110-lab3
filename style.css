@@ -1,49 +1,65 @@
 :root {
-    --primary-blue: #005ea2;
-    --accent-green: hsl(145, 63%, 42%);
-    --text-dark: rgb(33, 33, 33);
-    --bg-light: #fdfdfd;
-    --overlay-color: rgba(0, 0, 0, 0.05);
+    --bright-orange: #f58220;
+    --dark-orange: #D96A00;
+    --soft-orange: hsl(28, 100%, 65%);
+    --deep-black: rgb(26, 26, 26);
+    --light-cream: #FFF4E6;
+    --warm-beige: rgba(245, 230, 211, 0.8);
 
     --content-max-width: 8.5in;
     --base-padding: 1.5rem;
 }
 
-body {
-    background-color: var(--bg-light, white);
-    font-family: 'Inter', sans-serif;
-    color: var(--text-dark, black);
+header, main, footer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    max-width: var(--content-max-width);
+}
 
-    border-top: 10px solid var(--primary-blue);
+header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--warm-beige);
+}
+
+h1, h2, h2 + nav {
+    text-align: center;
+}
+
+body {
+    background-color: var(--light-cream, white);
+    font-family: 'Inter', sans-serif;
+    color: var(--deep-black, black);
+
+    border-top: 10px solid var(--bright-orange);
     margin: 0.5in auto;
     padding: 2cm;
 }
 
 main {
-    width: 95%;
-    max-width: var(--content-max-width);
-    font-size: 1.1rem;
-    line-height: 1.6;
+   font-size: 1.1rem;
+   line-height: 1.6;
 }
 
 section {
     margin-bottom: 5vh;
     padding: var(--base-padding);
-    background-color: var(--overlay-color);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--warm-beige);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
 }
 
 h1, h2 {
-    color: var(--primary-blue);
-    text-align: left;
+    color: var(--dark-orange);
 }
 
 h2 {
-    text-decoration: underline double var(--accent-green);
+    text-decoration: underline double var(--soft-orange);
 }
 
 a {
-    color: var(--primary-blue);
+    color: var(--bright-orange);
     transition: 0.3s ease;
 }
 
@@ -52,7 +68,7 @@ a:hover {
 }
 
 a:active {
-    color: var(--accent-green);
+    color: var(--soft-orange);
 }
 
 nav ul {
@@ -63,19 +79,23 @@ nav ul {
     list-style: none;
     padding: 1rem 0;
     margin: 1rem 0;
-    background-color: var(--primary-blue);
+    background-color: var(--deep-black);
     border-radius: 5px;
 }
 
 nav ul li {
     flex: 1;
-    text-align: center;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--light-cream);
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--bright-orange);
 }
 
 
@@ -85,8 +105,8 @@ nav ul li a {
     gap: 1.5rem;
 
     padding: 20px;
-    background-color: var(--overlay-color);
-    border: 2px dashed var(--primary-blue);
+    background-color: white;
+    border: 2px dashed var(--bright-orange);
     border-radius: 12px;
 }
 
