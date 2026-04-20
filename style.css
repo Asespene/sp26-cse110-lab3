@@ -1,3 +1,4 @@
+ /* Universal & Variables Selectors */
 :root {
     --bright-orange: #f58220;
     --dark-orange: #D96A00;
@@ -10,53 +11,40 @@
     --base-padding: 1.5rem;
 }
 
-header, main, footer {
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
-    max-width: var(--content-max-width);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--warm-beige);
-}
+/* Body & Global Styles */
 
-h1, h2, h2 + nav {
-    text-align: center;
-}
 
 body {
     background-color: var(--light-cream, white);
     font-family: 'Inter', sans-serif;
     color: var(--deep-black, black);
 
-    border-top: 10px solid var(--bright-orange);
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-top-color: var(--bright-orange);
+
+
     margin: 0.5in auto;
     padding: 2cm;
 }
 
+input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--dark-orange);
+}
+
 main {
-   font-size: 1.1rem;
-   line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--deep-black), black 10%);
 }
 
-section {
-    margin-bottom: 5vh;
-    padding: var(--base-padding);
-    background-color: var(--warm-beige);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-}
-
-h1, h2 {
-    color: var(--dark-orange);
-}
-
-h2 {
-    text-decoration: underline double var(--soft-orange);
-}
 
 a {
     color: var(--bright-orange);
@@ -67,14 +55,46 @@ a:hover {
     color:orange;
 }
 
-a:active {
-    color: var(--soft-orange);
+.member-item label {
+    cursor: pointer;
 }
+
+/* Header & Nav Bar */
+
+header, main, footer {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 95%;
+    max-width: var(--content-max-width);
+}
+
+
+
+header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--warm-beige);
+
+    position: relative;
+    top: 0;
+}
+
+h1, h2 {
+    color: var(--dark-orange);
+    text-align: center;
+}
+
+h1 {
+    min-width: 250px;
+}
+
 
 nav ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: row;
 
     list-style: none;
     padding: 1rem 0;
@@ -83,8 +103,8 @@ nav ul {
     border-radius: 5px;
 }
 
-nav ul li {
-    flex: 1;
+h2 + nav {
+    margin-top: 10px;
 }
 
 nav ul li a {
@@ -92,6 +112,8 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s ease;
+
+    display: inline-block;
 }
 
 nav ul li a:hover {
@@ -99,10 +121,43 @@ nav ul li a:hover {
 }
 
 
+a:active {
+    color: var(--soft-orange);
+}
+
+
+
+
+nav ul li {
+    flex: 1;
+}
+
+
+/* Content Sections */
+
+section {
+    margin-bottom: 5vh;
+    padding: var(--base-padding);
+    background-color: var(--warm-beige);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+section img {
+    display: block;
+    margin: 1rem auto;
+}
+
+/* Combinator */
+h2 ~ p {
+    margin-bottom: 1rem;
+}
+
 .attendance-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    align-items: start;
 
     padding: 20px;
     background-color: white;
@@ -110,32 +165,10 @@ nav ul li a:hover {
     border-radius: 12px;
 }
 
-.member-item {
+div.member-item {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.member-item label {
-    cursor: pointer;
-}
-
-#charter article {
-    padding: 1rem 2rem;
-    padding-left: 3rem;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    border: 2px solid var(--dark-orange);
-
-    box-sizing: border-box;
-}
-
-h2 + p {
-    font-style: italic;
-    margin-top: -10px;
-    margin-bottom: 20px;
 }
 
 .member-item:has(input:checked) {
@@ -143,9 +176,81 @@ h2 + p {
     border-radius: 4px;
 }
 
+
+h2 + p {
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
 #charter ul li:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.03);
 }
+
+#agenda ol {
+    padding-left: 2.5rem;
+    margin:  1.5rem 0;
+}
+
+#agenda li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+section hr {
+    border: none;
+    border-top: 1px solid var(--dark-orange);
+    opacity: 0.2;
+    margin-bottom: 1.5rem;
+}
+
+section ul, section ol {
+    padding-left: 2.5rem;
+    margin: 1.5rem 0;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+
+
+/* Team Charter */
+
+#charter {
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+    & h2 {
+        text-decoration: underline double var(--soft-orange);
+    }
+
+    & > article {
+        padding: 1rem 2rem;
+        margin: 20px 0;
+        border: 2px solid var(--dark-orange);
+
+        height: auto;
+    }
+}
+
+/* Footer & Responsiveness */
+
+footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    border-top: 1px solid #ccc;
+
+    position: static;
+}
+
+footer p {
+    color: color(display-p3 0.2 0.2 0.2);
+}
+
 
 @media (max-width: 700px) {
     .attendance-grid {
